@@ -1,0 +1,16 @@
+<div>
+    <a href='/dashboard/create/'><button id='create-blog'>Create a
+            Blog Post</button></a>
+    <h2 class='title'>Blog Posts</h2>
+    {{#if blogs.length}}
+</div>
+
+{{#each blogs as | blog|}}
+{{>blog-info blog}}
+<a href='/dashboard/edit/{{blog.id}}'><button class='edit-btn'>Edit Blog Post</button></a>
+{{/each}}
+
+{{else}}
+<h6>You haven't written any blog posts yet. Get writing!</h6>
+
+{{/if}}
