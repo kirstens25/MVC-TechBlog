@@ -74,6 +74,7 @@ router.get('/blog/:id', async (req, res) => {
       res.status(404).json({ message: 'No blog found with this id' });
       return;
     }
+  
 
    // serialize the data
    const blog = blogData.get({ plain: true });
@@ -96,7 +97,8 @@ router.get('/blog', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Blog }],
-    });
+    },
+    );
 
     const user = userData.get({ plain: true });
 
@@ -112,7 +114,7 @@ router.get('/blog', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/blog');
     return;
   }
 
@@ -123,7 +125,7 @@ router.get('/login', (req, res) => {
 // If not already a user 
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/blog');
     return;
   }
   res.render('signup');
