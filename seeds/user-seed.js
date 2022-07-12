@@ -2,27 +2,27 @@ const { User } =require ('../models');
 const userData = 
 [
   {
-    name: "Jessy Taylors",
+    username: "Jessy-Taylors",
     email: "jessy.t@tech.com",
     password: "12pass34word56"
   },
   {
-    name: "Stephanie Green",
+    username: "Stephanie-Green",
     email: "steph.green@tech.com",
     password: "dogs@rebetterthancat5"
   },
   {
-    name: "Jack Fern",
+    username: "Jack-Fern",
     email: "jack.fern1@tech.com",
     password: "Rac1ngc@r5"
   },
   {
-    name: "Johny Tims",
+    username: "Johny-Tims",
     email: "john.tims@tech.com",
     password: "b0wl1234"
   },
   {
-    name: "Emily Harris",
+    username: "Emily-Harris",
     email: "emily.h@tech.com",
     password: "S3pt3mb3r1987"
   },

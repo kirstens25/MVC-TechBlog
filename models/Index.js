@@ -2,39 +2,38 @@ const Blog = require('./Blog');
 const User = require('./User');
 const Comment = require('./Comment');
 
-// relationships between user, blog and comments
-
-// User can have multiple blogs
+// CREATES RELATIONSHIP BETWEEN USER, BLOG AND COMMENTS
+// USER CAN HAVE MULTIPLE BLOGS
 User.hasMany(Blog, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
-// Blog belongs to user
+// BLOG BELONGS TO USER
 Blog.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
-// Blog can have multiple comments
+// BLOG CAN HAVE MULTIPLE COMMENTS
 Blog.hasMany(Comment, {
     foreignKey: 'blog_id',
     onDelete: 'CASCADE'
 });
 
-// Comment belongs to blog
+// COMMENT BELONGS TO BLOG
 Comment.belongsTo(Blog, {
     foreignKey: 'blog_id',
     onDelete: 'CASCADE'
 });
 
-// User can make multiple comments
+// USER CAN MAKE MULTIPLE COMMENTS
 User.hasMany(Comment, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
-// Comment belongs to user
+// COMMENT BELONGS TO A USER
 Comment.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
