@@ -45,10 +45,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 // CREATE NEW BLOG
-router.get('/create', withAuth, (req, res) => {
+router.get('/create', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.findAll(req.params.id);
-    }
     res.render('create-blog', {
         layout: 'dashboard',
     });
@@ -62,4 +61,5 @@ router.get('/create', withAuth, (req, res) => {
     res.status(500).json(err);	
   }	
 });
-});
+
+module.exports = router;
