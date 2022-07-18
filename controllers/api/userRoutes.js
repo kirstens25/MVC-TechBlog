@@ -45,14 +45,14 @@ router.get('/:id', async (req, res) => {
   } catch (err) {		
     res.status(500).json(err);		
   }		
-});		
+});
+
 // SIGNUP	NEW USER
-router.post('/users/signup', async (req, res) => {
 router.post('/', async (req, res) => {		
   try {
     const userData = await User.create({	
       // INPUT FIELDS AT SIGNUP STAGE
-      username: req.body.username,	
+      name: req.body.username,	
       email: req.body.email,	
       password: req.body.password,		
     });	
@@ -66,8 +66,7 @@ router.post('/', async (req, res) => {
   } catch (err) {	
     res.status(400).json(err);	
   }
-});	
-})
+});
 // LOGIN AS A USER
 router.post('/login', async (req, res) => {	
   try {	

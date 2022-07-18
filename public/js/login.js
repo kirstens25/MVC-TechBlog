@@ -1,17 +1,15 @@
-const loginFormHandler = async (event) => {
+const loginFormHandler = async function (event) {
     event.preventDefault();
   
     // COLLECT DATA FROM THE LOGIN FORM
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
-    if (email && password) {
+    const email = document.querySelector('#email-login');
+    const password = document.querySelector('#password-login');
       // SEND POST REQUEST TO API ENDPOINT
-      const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
-      });
+    });
   
       if (response.ok) {
         // SUCCESSFUL = REDIRECT BROWSER TO DASHBOARD
@@ -19,5 +17,6 @@ const loginFormHandler = async (event) => {
       } else {
         alert(response.statusText);
       }
-    }
   };
+
+  document.querySelector('#login-form').addEventListener('submit', loginFormHandler);

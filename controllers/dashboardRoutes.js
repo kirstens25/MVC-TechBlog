@@ -49,7 +49,7 @@ router.get('/create', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.findAll(req.params.id);
     res.render('create-blog', {
-        layout: 'dashboard',
+        layout: 'main',
     });
 
     const blogs = blogData.map(blog => blog.get({ plain: true }));	

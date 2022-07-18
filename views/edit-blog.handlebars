@@ -14,7 +14,7 @@
         <div>
             This post was created on {{format_date.blog}}
             |
-            <a href='/blogs/{{blog.id}}'>{{blog.comments.length}} {{format_plural 'comment' blog.comments.length}}</a>
+            <a href='/blogs/{{blog.id}}'>{{blog.comments.length}} {{'comment' blog.comments.length}}</a>
         </div>
         <button type='submit' class='save-btn'>Save Blog</button>
         <button type='button' class='delete-btn'>Delete Blog</button>
