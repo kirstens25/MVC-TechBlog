@@ -2,7 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Blog, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
-
 // GET ALL BLOG POSTS
 router.get('/', withAuth, async (req, res) => {
     try {
@@ -21,7 +20,6 @@ router.get('/', withAuth, async (req, res) => {
         res.redirect('login')
     }
 });
-
 
 // FIND & EDIT BLOG BY ID
 router.get('/edit/:id', withAuth, async (req, res) => {
